@@ -10,30 +10,30 @@ public class UIController : MonoBehaviour
     [SerializeField] private Image dumpEnergy;
     [SerializeField] private TMP_Text text;
 
-    float maxEnergy = 10f;
+    float maxEnergy = 21;
     float curEnergy = 0f;
-    float maxDump = 10f;
     float curDump = 0f;
     // Start is called before the first frame update
     void Start()
     {
-        curDump = 1f;
+        curDump = maxEnergy / 10f;
+        
     }
 
     // Update is called once per frame
     void Update()
     {
         float energyState = energy.fillAmount = curEnergy / maxEnergy;
-        dumpEnergy.fillAmount = curDump / maxDump;
-        text.text = string.Format($"{energyState * 10:F0}");
+        dumpEnergy.fillAmount = curDump / maxEnergy;
+        // text.text = string.Format($"{energyState * 10:F0}");
         Charge();
         if (Input.GetKeyDown(KeyCode.F3))
         {
-            UseEnergy(1);
+            UseEnergy(5);
         }
         if (Input.GetKeyDown(KeyCode.F4))
         {
-            curEnergy += 1f;
+            curEnergy += maxEnergy / 10f;
         }
     }
     void Charge()
@@ -41,18 +41,19 @@ public class UIController : MonoBehaviour
         if (curEnergy >= maxEnergy)
             return;
         curEnergy += Time.deltaTime;
-        if (curEnergy > curDump)
+        if (curEnergy >= curDump)
         {
-            curDump += 1f;
+            curDump += maxEnergy / 10f;
         }
     }
     public void UseEnergy(float cost)
     {
-        if (curEnergy <= 0)
-            return;
-        curEnergy -= cost;
-        if (curDump <= 1)
-            return;
-        curDump -= cost;
+        curEnergy -= cost * (maxEnergy / 10);
+        curDump -= cost * (maxEnergy / 10);
+    }
+    void Test()
+    {
+        double testEnergy = curEnergy / maxEnergy;
+        
     }
 }
