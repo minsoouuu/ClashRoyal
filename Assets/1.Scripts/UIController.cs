@@ -14,6 +14,8 @@ public class UIController : MonoBehaviour
     float curEnergy = 0f;
     float curDump = 0f;
     // Start is called before the first frame update
+
+  
     void Start()
     {
         curDump = maxEnergy / 10f;

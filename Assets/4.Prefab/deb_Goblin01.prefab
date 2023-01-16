@@ -208,8 +208,8 @@ GameObject:
   m_Component:
   - component: {fileID: 8272943599223628453}
   - component: {fileID: 8272943599214529815}
-  - component: {fileID: 3385962913343824126}
   - component: {fileID: 2468318153827581649}
+  - component: {fileID: 3306289857205993341}
   m_Layer: 0
   m_Name: deb_Goblin01
   m_TagString: Untagged
@@ -253,24 +253,6 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
---- !u!143 &3385962913343824126
-CharacterController:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8272943599224061573}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Height: 1
-  m_Radius: 0.5
-  m_SlopeLimit: 45
-  m_StepOffset: 0.3
-  m_SkinWidth: 0.08
-  m_MinMoveDistance: 0.001
-  m_Center: {x: 0, y: 0.55, z: 0}
 --- !u!195 &2468318153827581649
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -293,6 +275,20 @@ NavMeshAgent:
   m_BaseOffset: 0
   m_WalkableMask: 4294967295
   m_ObstacleAvoidanceType: 4
+--- !u!114 &3306289857205993341
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8272943599224061573}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c5169ec0dd9972042aa4f2a89313135b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  agent: {fileID: 2468318153827581649}
+  anit: {fileID: 8272943599214529815}
 --- !u!1 &8272943599224061575
 GameObject:
   m_ObjectHideFlags: 0
