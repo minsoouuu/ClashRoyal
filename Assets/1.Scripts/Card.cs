@@ -1,21 +1,20 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+using TMPro;
 public class Card : MonoBehaviour
 {
-    public GameObject unit;
-    public Transform unitPoint;
-    void Start()
+    [SerializeField] private GameObject unit;
+    [SerializeField] private TMP_Text costText;
+
+    private void Start()
     {
-        
-    }
-    void Update()
-    {
-        
     }
     public void OnCreateGoblin()
     {
-        Instantiate(unit,unitPoint);
+        Instantiate(unit,ControllerManager.Instance.cardCont.pawnPoint);
+        ControllerManager.Instance.cardCont.Count -= 1;
+        // ControllerManager.Instance.uiCont.UseEnergy(goblin.charData.cost);
+        transform.GetChild(0).gameObject.SetActive(false);
     }
 }

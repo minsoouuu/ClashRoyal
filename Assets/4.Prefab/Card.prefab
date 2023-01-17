@@ -147,7 +147,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   unit: {fileID: 8272943599224061573, guid: 47b41978aba272c47ae5f4a2f7179c61, type: 3}
-  unitPoint: {fileID: 0}
 --- !u!1 &6090574686076832853
 GameObject:
   m_ObjectHideFlags: 0

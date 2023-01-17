@@ -8,5 +8,5 @@ public class ControllerManager : MonoBehaviour
     public UIController uiCont;
     public CardController cardCont;
 
-    private void Awake() => Instance = this;
+    void Awake() => Instance = this;
 }

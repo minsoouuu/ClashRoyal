@@ -7,6 +7,7 @@ public struct CharacterData
 {
     public string findtag;
     public float attRange;
+    public int cost;
 }
 
 public abstract class Character : MonoBehaviour
