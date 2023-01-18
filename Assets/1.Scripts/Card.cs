@@ -6,25 +6,39 @@ public class Card : MonoBehaviour
 {
     [SerializeField] private GameObject unit;
     [SerializeField] private TMP_Text costText;
-    NextCard nextCard = new NextCard();
+    [HideInInspector] public int index = 0;
+    public bool isOn = true;
+    CardData cardData;
 
+    public Card SetCardData(CardData cardData)
+    {
+        this.cardData = cardData;
+        return this;
+    }
     private void Start()
     {
 
     }
     public void OnCreateGoblin(int index)
     {
-        // ControllerManager.Instance.uiCont.UseEnergy(goblin.charData.cost);
-
-        ControllerManager.Instance.cardCont.cards[index].transform.GetChild(0).gameObject.SetActive(false);
-        Instantiate(unit,ControllerManager.Instance.cardCont.pawnPoint);
-        ControllerManager.Instance.cardCont.Index = index;
-        nextCard.nextCost++;
-        print(nextCard.nextCost);
+        HideIndex(index);
+        Instantiate(unit,ControllerManager.Instance.cardCont.pawnPoint).GetComponent<Character>();
     }
 
-    public void Cost(int cost)
+    public void SetCost(int cost)
     {
         costText.text = cost.ToString();
+    }
+
+    public int HideIndex(int index)
+    {
+        ControllerManager.Instance.cardCont.cards[index].transform.GetChild(0).gameObject.SetActive(false);
+        isOn = false;
+        return index;
+    }
+
+    public bool IsOn()
+    {
+        return isOn;
     }
 }

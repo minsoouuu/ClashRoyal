@@ -15,6 +15,7 @@ public abstract class Character : MonoBehaviour
     public CharacterData charData = new CharacterData();
     public NavMeshAgent agent;
     public Animator anit;
+    public CardData cardData;
   
     // Update is called once per frame
     void Update()

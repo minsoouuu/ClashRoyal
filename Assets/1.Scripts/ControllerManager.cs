@@ -7,6 +7,7 @@ public class ControllerManager : MonoBehaviour
     public static ControllerManager Instance;
     public UIController uiCont;
     public CardController cardCont;
+    public DataController dataCont;
 
     void Awake() => Instance = this;
 }

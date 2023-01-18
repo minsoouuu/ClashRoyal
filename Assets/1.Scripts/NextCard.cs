@@ -4,43 +4,41 @@ using UnityEngine;
 using TMPro;
 public class NextCard : MonoBehaviour
 {
-    [SerializeField] Queue<int> cards;
-    [SerializeField] private NextCard nextCard;
-    [SerializeField] Transform nextCardPoint;
+    [SerializeField] Queue<CardData> cards = new Queue<CardData>();
     [SerializeField] private TMP_Text text;
-    [HideInInspector] public int nextCost = 5;
-    public int createCnt = 0;
-    
-    public int CreateCnt
+    int cost = 0;
+
+    void Awake()
     {
-        get { return createCnt; }
-        set { createCnt = value; }
+        InvokeRepeating("AddNextCard", 0f, 1f);
     }
 
     void Start()
     {
-        InvokeRepeating("AddNextCard", 1f, 1f);
-        text.text = nextCost.ToString();
+        text.text = cost.ToString();
     }
 
     void Update()
     {
-        text.text = nextCost.ToString();
+        text.text = cost.ToString();
     }
 
     void AddNextCard()
     {
-        if (createCnt < 5) return;   
-        cards.Enqueue(nextCost);
-        createCnt++;
-        nextCost++;
+        for (int i = 0; i < 5; i++)
+        {
+            if (cards.Count > 5)
+                return;
+            int rand = Random.Range(0, ControllerManager.Instance.dataCont.datas.Length - 1);
+
+            CardData so = ControllerManager.Instance.dataCont.datas[rand];
+            cards.Enqueue(so);
+        }
     }
     
-    void ShowNextCard()
+    public CardData ShowNextCard()
     {
-        ControllerManager.Instance.cardCont.ReShow(nextCost);
-        nextCost++;
-        createCnt--;
-        text.text = nextCost.ToString();
+        return null;
+
     }
 }
