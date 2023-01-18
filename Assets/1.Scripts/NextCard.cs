@@ -1,38 +1,46 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+using TMPro;
 public class NextCard : MonoBehaviour
 {
-    [SerializeField] Queue<NextCard> cards;
+    [SerializeField] Queue<int> cards;
     [SerializeField] private NextCard nextCard;
     [SerializeField] Transform nextCardPoint;
-    int createCnt = 0;
-    bool showNext = true;
-    void Start()
+    [SerializeField] private TMP_Text text;
+    [HideInInspector] public int nextCost = 5;
+    public int createCnt = 0;
+    
+    public int CreateCnt
     {
-       
+        get { return createCnt; }
+        set { createCnt = value; }
     }
 
-    // Update is called once per frame
+    void Start()
+    {
+        InvokeRepeating("AddNextCard", 1f, 1f);
+        text.text = nextCost.ToString();
+    }
+
     void Update()
     {
-        AddNextCard();
+        text.text = nextCost.ToString();
     }
 
     void AddNextCard()
     {
         if (createCnt < 5) return;   
-        cards.Enqueue(nextCard);
+        cards.Enqueue(nextCost);
         createCnt++;
+        nextCost++;
     }
-   
+    
     void ShowNextCard()
     {
-        if (!showNext) return;
-        NextCard next = cards.Dequeue();
-        Instantiate(next, nextCardPoint);
+        ControllerManager.Instance.cardCont.ReShow(nextCost);
+        nextCost++;
+        createCnt--;
+        text.text = nextCost.ToString();
     }
-
-
 }

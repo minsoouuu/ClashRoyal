@@ -5,16 +5,15 @@ using UnityEngine.UI;
 using TMPro;
 public class CardController : MonoBehaviour
 {
-    [SerializeField] private Card[] cards;
+    [SerializeField] public Card[] cards;
     [SerializeField] private Transform cardPoint;
     public Transform pawnPoint;
-    int count = 0;
-    float time = 0f;
-
-    public int Count
+    int hidenIndex = 0;
+    NextCard nc = new NextCard();
+    public int Index
     {
-        get { return count; }
-        set { count = value; }
+        get { return hidenIndex; }
+        set { hidenIndex = value; }
     }
 
     private void Awake()
@@ -31,7 +30,7 @@ public class CardController : MonoBehaviour
     }
     void Update()
     {
-      
+
     }
 
     IEnumerator ShowCard()
@@ -39,9 +38,15 @@ public class CardController : MonoBehaviour
         yield return new WaitForSeconds(1f);
         for (int i = 0; i < cards.Length; i++)
         {
+            cards[i].Cost(i+1);
             cards[i].transform.GetChild(0).gameObject.SetActive(true);
             yield return new WaitForSeconds(1f);
         }
     }
-   
+
+    public void ReShow(int index)
+    {
+        cards[index].GetComponent<TMP_Text>().text = index.ToString();
+        cards[index].transform.GetChild(0).gameObject.SetActive(true);
+    }
 }

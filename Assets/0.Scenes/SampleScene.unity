@@ -3462,6 +3462,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   nextCard: {fileID: 0}
   nextCardPoint: {fileID: 566144313}
+  text: {fileID: 1246937888}
+  nextCost: 5
+  createCnt: 0
 --- !u!114 &1778538711
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4458,7 +4461,7 @@ MonoBehaviour:
       - m_Target: {fileID: 6200520566283118346}
         m_TargetAssemblyTypeName: Card, Assembly-CSharp
         m_MethodName: OnCreateGoblin
-        m_Mode: 1
+        m_Mode: 3
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -4590,11 +4593,11 @@ MonoBehaviour:
       - m_Target: {fileID: 6200520564938266992}
         m_TargetAssemblyTypeName: Card, Assembly-CSharp
         m_MethodName: OnCreateGoblin
-        m_Mode: 1
+        m_Mode: 3
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 1
+          m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
@@ -4724,11 +4727,11 @@ MonoBehaviour:
       - m_Target: {fileID: 6200520564614004064}
         m_TargetAssemblyTypeName: Card, Assembly-CSharp
         m_MethodName: OnCreateGoblin
-        m_Mode: 1
+        m_Mode: 3
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 1
+          m_IntArgument: 2
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
@@ -5123,11 +5126,11 @@ MonoBehaviour:
       - m_Target: {fileID: 6200520565350938524}
         m_TargetAssemblyTypeName: Card, Assembly-CSharp
         m_MethodName: OnCreateGoblin
-        m_Mode: 1
+        m_Mode: 3
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 1
+          m_IntArgument: 3
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
