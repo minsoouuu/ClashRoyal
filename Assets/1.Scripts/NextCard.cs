@@ -4,41 +4,50 @@ using UnityEngine;
 using TMPro;
 public class NextCard : MonoBehaviour
 {
-    [SerializeField] Queue<CardData> cards = new Queue<CardData>();
+    [SerializeField] public Queue<int> cards = new Queue<int>();
     [SerializeField] private TMP_Text text;
-    int cost = 0;
+    [HideInInspector] public int curCost = 0;
 
     void Awake()
     {
+        for (int i = 0; i < 10; i++)
+        {
+            int rand = Random.Range(0, 10);
+            cards.Enqueue(rand);
+        }
         InvokeRepeating("AddNextCard", 0f, 1f);
     }
 
     void Start()
     {
-        text.text = cost.ToString();
+
     }
 
     void Update()
     {
-        text.text = cost.ToString();
+        text.text = curCost.ToString();
     }
 
     void AddNextCard()
     {
-        for (int i = 0; i < 5; i++)
+        for (int i = cards.Count; cards.Count < 5; i++)
         {
-            if (cards.Count > 5)
-                return;
-            int rand = Random.Range(0, ControllerManager.Instance.dataCont.datas.Length - 1);
+            int rand = Random.Range(0,10);
 
-            CardData so = ControllerManager.Instance.dataCont.datas[rand];
-            cards.Enqueue(so);
+            // CardData so = ControllerManager.Instance.dataCont.datas[rand];
+            cards.Enqueue(rand);
         }
     }
-    
-    public CardData ShowNextCard()
+    public void SetCurCost()
     {
-        return null;
-
+        int curNum = cards.Dequeue();
+        curCost = curNum;
+    }
+    public int ShowNextCard()
+    {
+        int nextNum = cards.Dequeue();
+        curCost = nextNum;
+        print("다음 숫자" + nextNum);
+        return nextNum;
     }
 }

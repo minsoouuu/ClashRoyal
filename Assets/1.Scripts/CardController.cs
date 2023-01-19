@@ -7,6 +7,8 @@ public class CardController : MonoBehaviour
 {
     [SerializeField] public Card[] cards;
     [SerializeField] private Transform cardPoint;
+    [SerializeField] private NextCard nextCard;
+
     public Transform pawnPoint;
     int hidenIndex = 0;
     public int Index
@@ -29,10 +31,7 @@ public class CardController : MonoBehaviour
     }
     void Update()
     {
-        if (!cards[Index].IsOn())
-        {
-            ReShow();
-        }
+       
     }
 
     IEnumerator ShowCard()
@@ -47,9 +46,17 @@ public class CardController : MonoBehaviour
         }
     }
 
-    public void ReShow()
+    public void ReShow(int index)
     {
-         cards[cards.]
-         cards[Index].gameObject.SetActive(true);
+        StartCoroutine(SetReShowDelay(index));
+    }
+
+    IEnumerator SetReShowDelay(int index)
+    {
+
+        yield return new WaitForSeconds(1f);
+        cards[index].gameObject.GetComponent<Card>().SetCost(nextCard.curCost);
+        nextCard.SetCurCost();
+        cards[index].transform.GetChild(0).gameObject.SetActive(true);
     }
 }

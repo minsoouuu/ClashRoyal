@@ -7,7 +7,6 @@ public class Card : MonoBehaviour
     [SerializeField] private GameObject unit;
     [SerializeField] private TMP_Text costText;
     [HideInInspector] public int index = 0;
-    public bool isOn = true;
     CardData cardData;
 
     public Card SetCardData(CardData cardData)
@@ -30,15 +29,9 @@ public class Card : MonoBehaviour
         costText.text = cost.ToString();
     }
 
-    public int HideIndex(int index)
+    public void HideIndex(int index)
     {
         ControllerManager.Instance.cardCont.cards[index].transform.GetChild(0).gameObject.SetActive(false);
-        isOn = false;
-        return index;
-    }
-
-    public bool IsOn()
-    {
-        return isOn;
+        ControllerManager.Instance.cardCont.ReShow(index);
     }
 }

@@ -2007,6 +2007,7 @@ MonoBehaviour:
   - {fileID: 6200520564614004064}
   - {fileID: 6200520565350938524}
   cardPoint: {fileID: 1087026753}
+  nextCard: {fileID: 1778538710}
   pawnPoint: {fileID: 1746513515}
 --- !u!1 &1099410393
 GameObject:
