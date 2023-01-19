@@ -11,10 +11,6 @@ public class DataController : MonoBehaviour
     string[] dataNames = {"Goblin"};
     private void Start()
     {
-        int index = 0;
-        foreach (var item in datas)
-        {
-            //dicDatas.Add(dataNames[index], datas[index]);
-        }
+       
     }
 }

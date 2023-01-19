@@ -8,7 +8,7 @@ public class CardController : MonoBehaviour
     [SerializeField] public Card[] cards;
     [SerializeField] private Transform cardPoint;
     [SerializeField] private NextCard nextCard;
-
+    [SerializeField] private CardData cardData;
     public Transform pawnPoint;
     int hidenIndex = 0;
     public int Index
@@ -39,8 +39,8 @@ public class CardController : MonoBehaviour
         yield return new WaitForSeconds(1f);
         for (int i = 0; i < cards.Length; i++)
         {
-            int rand = Random.Range(1, 10);
-            cards[i].SetCost(rand);
+            int rand = Random.Range(0, ControllerManager.Instance.dataCont.datas.Length - 1);
+            cards[i].SetCost(ControllerManager.Instance.dataCont.datas[rand].Cost);
             cards[i].transform.GetChild(0).gameObject.SetActive(true);
             yield return new WaitForSeconds(1f);
         }
@@ -53,7 +53,6 @@ public class CardController : MonoBehaviour
 
     IEnumerator SetReShowDelay(int index)
     {
-
         yield return new WaitForSeconds(1f);
         cards[index].gameObject.GetComponent<Card>().SetCost(nextCard.curCost);
         nextCard.SetCurCost();

@@ -4,7 +4,7 @@ using UnityEngine;
 using TMPro;
 public class Card : MonoBehaviour
 {
-    [SerializeField] private GameObject unit;
+    [SerializeField] private CardData unit;
     [SerializeField] private TMP_Text costText;
     [HideInInspector] public int index = 0;
     CardData cardData;
@@ -21,7 +21,7 @@ public class Card : MonoBehaviour
     public void OnCreateGoblin(int index)
     {
         HideIndex(index);
-        Instantiate(unit,ControllerManager.Instance.cardCont.pawnPoint).GetComponent<Character>();
+        Instantiate(ControllerManager.Instance.dataCont.datas[0].Char,ControllerManager.Instance.cardCont.pawnPoint);
     }
 
     public void SetCost(int cost)
