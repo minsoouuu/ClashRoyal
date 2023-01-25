@@ -4,34 +4,47 @@ using UnityEngine;
 using TMPro;
 public class Card : MonoBehaviour
 {
-    [SerializeField] private CardData unit;
     [SerializeField] private TMP_Text costText;
-    [HideInInspector] public int index = 0;
+    [SerializeField] private Transform parent;
+
     CardData cardData;
+
+    public int Cost { get; set; }
+    public bool Empty { get; set; }
+
+    private void Start()
+    {
+        
+    }
+
+    private void Update()
+    {
+        costText.text = Cost.ToString();
+    }
+
+    public void OnSpawnUint()
+    {
+        Instantiate(cardData.Char, parent);
+        ControllerManager.Instance.cardCont.Invoke("AddCard", 1f);
+    }
+
+    public Card Enable(bool isOn)
+    {
+        transform.GetChild(0).gameObject.SetActive(isOn);
+        return this;
+    }
+
+    public Card SetParent(Transform transform)
+    {
+        this.parent = transform;
+        return this;
+    }
 
     public Card SetCardData(CardData cardData)
     {
         this.cardData = cardData;
+        Cost = this.cardData.Cost;
+        Empty = false;
         return this;
-    }
-    private void Start()
-    {
-
-    }
-    public void OnCreateGoblin(int index)
-    {
-        HideIndex(index);
-        Instantiate(ControllerManager.Instance.dataCont.datas[0].Char,ControllerManager.Instance.cardCont.pawnPoint);
-    }
-
-    public void SetCost(int cost)
-    {
-        costText.text = cost.ToString();
-    }
-
-    public void HideIndex(int index)
-    {
-        ControllerManager.Instance.cardCont.cards[index].transform.GetChild(0).gameObject.SetActive(false);
-        ControllerManager.Instance.cardCont.ReShow(index);
     }
 }

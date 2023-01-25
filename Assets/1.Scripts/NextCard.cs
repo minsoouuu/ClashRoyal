@@ -5,56 +5,45 @@ using TMPro;
 public class NextCard : MonoBehaviour
 {
 
-    [SerializeField] public Queue<CardData> cards = new Queue<CardData>();
     [SerializeField] private TMP_Text text;
-    [HideInInspector] public int curCost = 0;
+    public Queue<CardData> cards = new Queue<CardData>();
 
-    void Awake()
+    CardData nextcard = null;
+    private void Awake()
     {
-        
-        for (int i = 0; i < 10; i++)
+        for (int i = 0; i < 5; i++)
         {
-            int rand = Random.Range(0, ControllerManager.Instance.dataCont.datas.Length - 1);
-            cards.Enqueue(ControllerManager.Instance.dataCont.datas[rand]);
+            int rand = Random.Range(0, ControllerManager.Instance.dataCont.datas.Length);
+            CardData card = ControllerManager.Instance.dataCont.datas[rand];
+            cards.Enqueue(card);
+           
         }
-        InvokeRepeating("AddNextCard", 0f, 1f);
+        nextcard = cards.Dequeue();
+        InvokeRepeating("CardEnqueue", 0f, 0.5f);
     }
 
-    void Start()
+    private void Update()
     {
-
-    }
-
-    void Update()
-    {
-        text.text = curCost.ToString();
-    }
-
-    public CardData SetCost(CardData cardData)
-    {
-        return cards.Dequeue();
-    }
-
-    void AddNextCard()
-    {
-        for (int i = cards.Count; cards.Count < 5; i++)
+        if (nextcard == null)
         {
-            int rand = Random.Range(0,10);
-
-            CardData so = ControllerManager.Instance.dataCont.datas[rand];
-            cards.Enqueue(so);
+            text.text = $"{nextcard.Cost}";
         }
     }
-    public void SetCurCost()
+    void CardEnqueue()
     {
-        CardData curNum = cards.Dequeue();
-        curCost = curNum.Cost;
+        if (cards.Count >= 5)
+        {
+            return;
+        }
+        int rand = Random.Range(0, ControllerManager.Instance.dataCont.datas.Length);
+        CardData card = ControllerManager.Instance.dataCont.datas[rand];
+        cards.Enqueue(card);
     }
-    public CardData ShowNextCard()
+
+    public CardData CardDequeue()
     {
-        CardData nextNum = cards.Dequeue();
-        curCost = nextNum.Cost;
-        print("다음 숫자" + nextNum);
-        return nextNum;
+        CardData card = nextcard;
+        nextcard = cards.Dequeue();
+        return card;
     }
 }

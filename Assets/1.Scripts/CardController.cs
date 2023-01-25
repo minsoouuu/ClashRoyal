@@ -8,54 +8,36 @@ public class CardController : MonoBehaviour
     [SerializeField] public Card[] cards;
     [SerializeField] private Transform cardPoint;
     [SerializeField] private NextCard nextCard;
-    [SerializeField] private CardData cardData;
     public Transform pawnPoint;
-    int hidenIndex = 0;
-    public int Index
+
+    private void Start()
     {
-        get { return hidenIndex; }
-        set { hidenIndex = value; }
+        StartCoroutine("CardSpawn");
     }
 
-    private void Awake()
+    IEnumerator CardSpawn()
     {
-        foreach (Card item in cards)
-        {
-            item.transform.GetChild(0).gameObject.SetActive(false);
-        }
-       
-    }
-    void Start()
-    {
-        StartCoroutine(ShowCard());
-    }
-    void Update()
-    {
-       
-    }
-
-    IEnumerator ShowCard()
-    {
-        yield return new WaitForSeconds(1f);
         for (int i = 0; i < cards.Length; i++)
         {
-            int rand = Random.Range(0, ControllerManager.Instance.dataCont.datas.Length - 1);
-            cards[i].SetCost(ControllerManager.Instance.dataCont.datas[rand].Cost);
-            cards[i].transform.GetChild(0).gameObject.SetActive(true);
+            cards[i].Enable(true)
+                .SetParent(pawnPoint)
+                .SetCardData(nextCard.CardDequeue());
             yield return new WaitForSeconds(1f);
         }
     }
 
-    public void ReShow(int index)
+    public void AddCard()
     {
-        StartCoroutine(SetReShowDelay(index));
-    }
-
-    IEnumerator SetReShowDelay(int index)
-    {
-        yield return new WaitForSeconds(1f);
-        cards[index].gameObject.GetComponent<Card>().SetCost(nextCard.curCost);
-        nextCard.SetCurCost();
-        cards[index].transform.GetChild(0).gameObject.SetActive(true);
+        for (int i = 0; i < cards.Length; i++)
+        {
+            if (cards[i].Empty)
+            {
+                cards[i].Enable(true)
+                    .SetParent(pawnPoint)
+                    .SetCardData(nextCard.CardDequeue());
+                cards[i].Empty = false;
+                break;
+            }
+        }
     }
 }

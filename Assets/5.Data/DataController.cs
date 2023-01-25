@@ -7,10 +7,4 @@ public class DataController : MonoBehaviour
     public CardData[] datas;
 
     // public Dictionary<string, ScriptableObject> dicDatas = new Dictionary<string, ScriptableObject>();
-
-    string[] dataNames = {"Goblin"};
-    private void Start()
-    {
-       
-    }
 }
