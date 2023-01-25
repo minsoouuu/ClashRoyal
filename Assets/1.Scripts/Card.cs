@@ -24,8 +24,15 @@ public class Card : MonoBehaviour
 
     public void OnSpawnUint()
     {
-        Instantiate(cardData.Char, parent);
-        ControllerManager.Instance.cardCont.Invoke("AddCard", 1f);
+        Debug.Log(Cost);
+        if (ControllerManager.Instance.uiCont.curEnergy >= Cost && !Empty)
+        {
+            Instantiate(cardData.Char, parent);
+            ControllerManager.Instance.cardCont.Invoke("AddCard", 1f);
+            Enable(false);
+            Empty = true;
+            ControllerManager.Instance.uiCont.UseEnergy(Cost);
+        }
     }
 
     public Card Enable(bool isOn)

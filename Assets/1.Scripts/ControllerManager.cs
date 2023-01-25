@@ -9,5 +9,11 @@ public class ControllerManager : MonoBehaviour
     public CardController cardCont;
     public DataController dataCont;
 
-    void Awake() => Instance = this;
+    public NextCard nextCard;
+
+    void Awake()
+    {
+        Instance = this;
+        nextCard.Initialize();
+    }
 }

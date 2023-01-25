@@ -3,15 +3,14 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
-
+using System;
 public class UIController : MonoBehaviour
 {
     [SerializeField] private Image energy;
     [SerializeField] private Image dumpEnergy;
     [SerializeField] private TMP_Text text;
-
+    [HideInInspector] public float curEnergy = 0f;
     float maxEnergy = 21;
-    float curEnergy = 0f;
     float curDump = 0f;
     // Start is called before the first frame update
 
@@ -25,18 +24,11 @@ public class UIController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        float energyState = energy.fillAmount = curEnergy / maxEnergy;
+        double energyState = energy.fillAmount = curEnergy / maxEnergy;
         dumpEnergy.fillAmount = curDump / maxEnergy;
-        // text.text = string.Format($"{energyState * 10:F0}");
+        double num = Math.Truncate(energyState*10);
+        text.text = num.ToString();
         Charge();
-        if (Input.GetKeyDown(KeyCode.F3))
-        {
-            UseEnergy(5);
-        }
-        if (Input.GetKeyDown(KeyCode.F4))
-        {
-            curEnergy += maxEnergy / 10f;
-        }
     }
     void Charge()
     {
@@ -56,6 +48,7 @@ public class UIController : MonoBehaviour
     void Test()
     {
         double testEnergy = curEnergy / maxEnergy;
-        
+        double b = Math.Truncate(testEnergy*10);
+        text.text = (b / 10).ToString();
     }
 }

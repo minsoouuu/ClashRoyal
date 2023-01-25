@@ -991,6 +991,51 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 443192385}
   m_CullTransparentMesh: 1
+--- !u!1 &516876196
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 516876198}
+  - component: {fileID: 516876197}
+  m_Layer: 0
+  m_Name: EnemySpawnPoint
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &516876197
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 516876196}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2d6794ad4d072a640ba84237b715ae96, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  prefab: {fileID: 8272943599224061573, guid: 47b41978aba272c47ae5f4a2f7179c61, type: 3}
+  parent: {fileID: 516876198}
+--- !u!4 &516876198
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 516876196}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0.563, z: -1.754}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 11
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &517471741
 GameObject:
   m_ObjectHideFlags: 0
@@ -1308,6 +1353,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   datas:
   - {fileID: 11400000, guid: 9cfc96d4d91232d44a1b31349224c2c0, type: 2}
+  - {fileID: 11400000, guid: 55aa9e5837f079740a0f6cf314a779b6, type: 2}
+  - {fileID: 11400000, guid: 76076ccb7af4b9b42a5cab5a4941c8ac, type: 2}
+  - {fileID: 11400000, guid: 9666334dbb41e7743b0eccc10c8173e5, type: 2}
 --- !u!4 &672412025
 Transform:
   m_ObjectHideFlags: 0
@@ -3531,6 +3579,7 @@ MonoBehaviour:
   energy: {fileID: 569556293}
   dumpEnergy: {fileID: 282858437}
   text: {fileID: 152978559}
+  curEnergy: 0
 --- !u!4 &1799146286
 Transform:
   m_ObjectHideFlags: 0
@@ -3920,6 +3969,7 @@ MonoBehaviour:
   uiCont: {fileID: 1799146285}
   cardCont: {fileID: 1087026755}
   dataCont: {fileID: 672412024}
+  nextCard: {fileID: 1778538710}
 --- !u!4 &2042206283
 Transform:
   m_ObjectHideFlags: 0
@@ -4313,7 +4363,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!222 &6090574684676529173
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -4458,8 +4508,8 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 6200520566283118346}
         m_TargetAssemblyTypeName: Card, Assembly-CSharp
-        m_MethodName: OnCreateGoblin
-        m_Mode: 3
+        m_MethodName: OnSpawnUint
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -4590,8 +4640,8 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 6200520564938266992}
         m_TargetAssemblyTypeName: Card, Assembly-CSharp
-        m_MethodName: OnCreateGoblin
-        m_Mode: 3
+        m_MethodName: OnSpawnUint
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -4724,8 +4774,8 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 6200520564614004064}
         m_TargetAssemblyTypeName: Card, Assembly-CSharp
-        m_MethodName: OnCreateGoblin
-        m_Mode: 3
+        m_MethodName: OnSpawnUint
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -4849,7 +4899,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &6090574685969824229
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5123,8 +5173,8 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 6200520565350938524}
         m_TargetAssemblyTypeName: Card, Assembly-CSharp
-        m_MethodName: OnCreateGoblin
-        m_Mode: 3
+        m_MethodName: OnSpawnUint
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -5150,7 +5200,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &6090574686280533628
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5524,7 +5574,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &6090574686558151276
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -6,23 +6,15 @@ public class Castle : MonoBehaviour
 {
     [SerializeField] private float maxHP;
     [SerializeField] Image hpImage;
-    float curHP = 0f;
+    public float CurHP { get; set; }
     void Start()
     {
-        curHP = maxHP;
+        CurHP = maxHP;
     }
 
     // Update is called once per frame
     void Update()
     {
-        hpImage.fillAmount = curHP / maxHP;
-        if (Input.GetKeyDown(KeyCode.F1))
-        {
-            curHP -= 100f;
-        }
-        if (Input.GetKeyDown(KeyCode.F2))
-        {
-            curHP += 100f;
-        }
+        hpImage.fillAmount = CurHP / maxHP;
     }
 }
