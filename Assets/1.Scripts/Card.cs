@@ -7,7 +7,8 @@ public class Card : MonoBehaviour
     [SerializeField] private TMP_Text costText;
     [SerializeField] private Transform parent;
 
-    CardData cardData;
+    // Å×½ºÆ®
+    public CardData CardData { get; set; }
 
     public int Cost { get; set; }
     public bool Empty { get; set; }
@@ -24,10 +25,11 @@ public class Card : MonoBehaviour
 
     public void OnSpawnUint()
     {
-        Debug.Log(Cost);
         if (ControllerManager.Instance.uiCont.curEnergy >= Cost && !Empty)
         {
-            Instantiate(cardData.Char, parent);
+            Character character = Instantiate(CardData.Char, parent);
+            character.charData.findtag = "enemy";
+            character.tag = "my";
             ControllerManager.Instance.cardCont.Invoke("AddCard", 1f);
             Enable(false);
             Empty = true;
@@ -49,8 +51,8 @@ public class Card : MonoBehaviour
 
     public Card SetCardData(CardData cardData)
     {
-        this.cardData = cardData;
-        Cost = this.cardData.Cost;
+        this.CardData = cardData;
+        Cost = this.CardData.Cost;
         Empty = false;
         return this;
     }

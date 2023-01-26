@@ -13,5 +13,13 @@ public class CardData : ScriptableObject
 
     [SerializeField] int cost;
     public int Cost { get  { return cost; } }
+    [SerializeField] float damage;
+    public float Damage { get { return damage; } }
+    [SerializeField] float hp;
+    public float HP { get { return hp; } }
+    [SerializeField] float attTime;
+    public float AttTime { get { return attTime; } }
+    [SerializeField] float attRange;
+    public float AttRange { get { return attRange; } }
 
 }

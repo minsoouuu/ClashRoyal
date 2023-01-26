@@ -5,11 +5,7 @@ using UnityEngine.AI;
 
 public struct CharacterData
 {
-    public float attTime;
-    public float damage;
     public string findtag;
-    public float attRange;
-    public float hp;
 }
 
 public abstract class Character : MonoBehaviour
@@ -19,10 +15,12 @@ public abstract class Character : MonoBehaviour
     public Animator anit;
     CardData cardData;
     float time = 0f;
-    public float HP
+    float maxHP;
+
+    private void Start()
     {
-        set { charData.hp -= value; }
-    }    // Update is called once per frame
+        
+    }
     void Update()
     {
         time += Time.deltaTime;
@@ -42,7 +40,7 @@ public abstract class Character : MonoBehaviour
         }
         if (findTarget == null) return;
 
-        if (charData.attRange < distance)
+        if (cardData.AttRange < distance)
         {
             anit.SetTrigger("run");
             agent.SetDestination(findTarget.transform.position);
@@ -53,33 +51,30 @@ public abstract class Character : MonoBehaviour
             anit.SetTrigger("idle");
             agent.SetDestination(transform.position);
             anit.SetTrigger("attack");
-            if (charData.attTime < time)
+            if (cardData.AttTime < time)
             {
-                Attack(findTarget);
+                // Attack(findTarget);
                 time = 0f;
             }
         }
 
-        if (charData.hp <= 0)
+        if (cardData.HP <= 0)
         {
-            Die();
+            // Die
         }
 
     }
     public virtual void Attack(GameObject target)
     {
-        if (target.tag == "castle")
+        // 건물
+        if (target.name == "Main" || target.name == "Right" || target.name == "Left")
         {
-            target.gameObject.GetComponent<Castle>().CurHP -= charData.damage;
+            target.GetComponent<Castle>().CurHP -= cardData.HP;
         }
-        else if (target.tag == "enemy")
+        // 캐릭터
+        else
         {
-            target.gameObject.GetComponent<Character>().HP = charData.damage;
         }
-    } 
-
-    public virtual void Die()
-    {
-        Destroy(gameObject);
     }
+   
 }
