@@ -8,7 +8,7 @@ public class NextCard : MonoBehaviour
     [SerializeField] private TMP_Text text;
     public Queue<CardData> cards = new Queue<CardData>();
 
-    CardData nextcard = null;
+    CardData nextcard;
    
     public void Initialize()
     {
@@ -23,10 +23,7 @@ public class NextCard : MonoBehaviour
     }
     private void Update()
     {
-        if (nextcard == null)
-        {
             text.text = $"{nextcard.Cost}";
-        }
     }
     void CardEnqueue()
     {

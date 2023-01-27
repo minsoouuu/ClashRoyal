@@ -15,7 +15,7 @@ MonoBehaviour:
   character: {fileID: 3306289857205993341, guid: 47b41978aba272c47ae5f4a2f7179c61, type: 3}
   speed: 2
   cost: 2
-  damage: 2
+  damage: 1000
   hp: 20
   attTime: 3
-  attRange: 1
+  attRange: 2

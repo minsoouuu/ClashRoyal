@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
 using UnityEngine.UI;
+
 public struct CharacterData
 {
     public string findtag;
@@ -17,10 +18,6 @@ public abstract class Character : MonoBehaviour
     float curHp = 0;
     float time = 0f;
     [SerializeField] Image hpImage;
-    public virtual void SetHp()
-    {
-        curHp = cardData.HP;
-    }
 
     public float Damage
     {
@@ -47,7 +44,11 @@ public abstract class Character : MonoBehaviour
                 distance = dis;
             }
         }
-        if (findTarget == null) return;
+        if (findTarget == null)
+        {
+            anit.SetTrigger("idle");
+            return;
+        }
 
         if (cardData.AttRange < distance)
         {
@@ -68,24 +69,34 @@ public abstract class Character : MonoBehaviour
             }
         }
 
-        if (cardData.HP <= 0)
+        if (curHp <= 0)
         {
-            // Die
+            Die();
         }
 
     }
-    public virtual void Attack(GameObject target)
+    void Attack(GameObject target)
     {
         // 건물
         if (target.name == "Main" || target.name == "Right" || target.name == "Left")
         {
             target.GetComponent<Castle>().CurHP -= cardData.Damage;
         }
+
         // 캐릭터
         else
         {
             target.GetComponent<Character>().Damage = cardData.Damage;
         }
+    }
+    public virtual void SetHp()
+    {
+        curHp = cardData.HP;
+    }
+
+    void Die()
+    {
+        Destroy(gameObject);
     }
    
 }

@@ -1020,7 +1020,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2d6794ad4d072a640ba84237b715ae96, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  prefab: {fileID: 3306289857205993341, guid: 47b41978aba272c47ae5f4a2f7179c61, type: 3}
   parent: {fileID: 516876198}
   cardDatas:
   - {fileID: 11400000, guid: 9cfc96d4d91232d44a1b31349224c2c0, type: 2}
@@ -1745,8 +1744,8 @@ Camera:
   near clip plane: 0.3
   far clip plane: 1000
   field of view: 60
-  orthographic: 0
-  orthographic size: 5
+  orthographic: 1
+  orthographic size: 10.46
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2

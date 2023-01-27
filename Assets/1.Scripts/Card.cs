@@ -2,29 +2,33 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
+using System;
 public class Card : MonoBehaviour
 {
     [SerializeField] private TMP_Text costText;
     [SerializeField] private Transform parent;
-    // Å×½ºÆ®
     public CardData cardData;
+    double costNum;
 
     public int Cost { get; set; }
     public bool Empty { get; set; }
 
-    private void Start()
+    void Start()
     {
         
     }
 
-    private void Update()
+    void Update()
     {
         costText.text = Cost.ToString();
+        double num = ControllerManager.Instance.uiCont.curEnergy;
+        costNum = Math.Truncate(num * 10);
     }
 
     public void OnSpawnUint()
     {
-        if (ControllerManager.Instance.uiCont.curEnergy >= Cost && !Empty)
+        
+        if (costNum >= Cost && !Empty)
         {
             Character unit = Instantiate(cardData.Char, parent);
             unit.cardData = cardData;

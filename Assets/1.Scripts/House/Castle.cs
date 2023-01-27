@@ -16,5 +16,6 @@ public class Castle : MonoBehaviour
     void Update()
     {
         hpImage.fillAmount = CurHP / maxHP;
+        if (CurHP <= 0) Destroy(gameObject);
     }
 }

@@ -20,8 +20,6 @@ public class EnemySpawn : MonoBehaviour
             character.cardData = cardDatas[0];
             character.charData.findtag = "my";
             character.tag = "enemy";
-            Debug.Log(character.charData.findtag);
-            Debug.Log(character.tag);
         }
         if (Input.GetKeyDown(KeyCode.F2))
         {

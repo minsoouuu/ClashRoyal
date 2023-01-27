@@ -18,4 +18,4 @@ MonoBehaviour:
   damage: 1
   hp: 10
   attTime: 4
-  attRange: 1
+  attRange: 2

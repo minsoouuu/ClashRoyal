@@ -26,7 +26,7 @@ public class UIController : MonoBehaviour
     {
         double energyState = energy.fillAmount = curEnergy / maxEnergy;
         dumpEnergy.fillAmount = curDump / maxEnergy;
-        double num = Math.Truncate(energyState*10);
+        double num = Math.Truncate(energyState * 10);
         text.text = num.ToString();
         Charge();
     }
@@ -34,11 +34,14 @@ public class UIController : MonoBehaviour
     {
         if (curEnergy >= maxEnergy)
             return;
+
         curEnergy += Time.deltaTime;
+
         if (curEnergy >= curDump)
         {
             curDump += maxEnergy / 10f;
         }
+
     }
     public void UseEnergy(float cost)
     {
