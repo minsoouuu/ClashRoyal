@@ -4,9 +4,8 @@ using UnityEngine;
 
 public class EnemySpawn : MonoBehaviour
 {
-    float createTime = 0f;
-    [SerializeField] private Character prefab;
     [SerializeField] private Transform parent;
+    [SerializeField] private CardData[] cardDatas = new CardData[4];
     void Start()
     {
         
@@ -17,10 +16,21 @@ public class EnemySpawn : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.F1))
         {
-            Character character = Instantiate(prefab,parent);
+            Character character = Instantiate(cardDatas[0].Char, parent); 
+            character.cardData = cardDatas[0];
             character.charData.findtag = "my";
             character.tag = "enemy";
-            // Debug.Log(prefab.charData.findtag);
+            Debug.Log(character.charData.findtag);
+            Debug.Log(character.tag);
+        }
+        if (Input.GetKeyDown(KeyCode.F2))
+        {
+            Character character = Instantiate(cardDatas[1].Char, parent);
+            character.cardData = cardDatas[1];
+            character.charData.findtag = "my";
+            character.tag = "enemy";
+            Debug.Log(character.charData.findtag);
+            Debug.Log(character.tag);
         }
     }
 }

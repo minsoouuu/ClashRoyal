@@ -6,6 +6,11 @@ public class Goblin : Character
 {
     void Start()
     {
-        charData.findtag = "enemy";
+        SetHp();
+    }
+
+    public override void SetHp()
+    {
+        base.SetHp();
     }
 }

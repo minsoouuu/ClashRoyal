@@ -19,23 +19,12 @@ public class CardController : MonoBehaviour
     {
         for (int i = 0; i < cards.Length; i++)
         {
-            cards[i].Enable(true)
-                .SetParent(pawnPoint);
-            CardData cardData = nextCard.CardDequeue();
-            cards[i].SetCardData(cardData);
-            cards[i].CardData = cardData;
-
-            yield return new WaitForSeconds(1f);
-
-
-
-            /*
+            
             cards[i].Enable(true)
                 .SetParent(pawnPoint)
                 .SetCardData(nextCard.CardDequeue());
             
             yield return new WaitForSeconds(1f);
-            */
         }
     }
 

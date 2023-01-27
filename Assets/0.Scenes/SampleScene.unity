@@ -1022,6 +1022,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   prefab: {fileID: 3306289857205993341, guid: 47b41978aba272c47ae5f4a2f7179c61, type: 3}
   parent: {fileID: 516876198}
+  cardDatas:
+  - {fileID: 11400000, guid: 9cfc96d4d91232d44a1b31349224c2c0, type: 2}
+  - {fileID: 11400000, guid: 55aa9e5837f079740a0f6cf314a779b6, type: 2}
+  - {fileID: 11400000, guid: 76076ccb7af4b9b42a5cab5a4941c8ac, type: 2}
+  - {fileID: 11400000, guid: 9666334dbb41e7743b0eccc10c8173e5, type: 2}
 --- !u!4 &516876198
 Transform:
   m_ObjectHideFlags: 0
@@ -5647,6 +5652,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   costText: {fileID: 6090574686307676935}
   parent: {fileID: 1746513515}
+  cardData: {fileID: 0}
 --- !u!114 &6200520564938266992
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5661,6 +5667,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   costText: {fileID: 6090574686531278615}
   parent: {fileID: 1746513515}
+  cardData: {fileID: 0}
 --- !u!114 &6200520565350938524
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5675,6 +5682,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   costText: {fileID: 6090574685969824251}
   parent: {fileID: 1746513515}
+  cardData: {fileID: 0}
 --- !u!114 &6200520566283118346
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5689,6 +5697,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   costText: {fileID: 6090574684653857133}
   parent: {fileID: 1746513515}
+  cardData: {fileID: 0}
 --- !u!33 &6502399096883444469
 MeshFilter:
   m_ObjectHideFlags: 0
