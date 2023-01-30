@@ -3584,6 +3584,7 @@ MonoBehaviour:
   dumpEnergy: {fileID: 282858437}
   text: {fileID: 152978559}
   curEnergy: 0
+  num: 0
 --- !u!4 &1799146286
 Transform:
   m_ObjectHideFlags: 0

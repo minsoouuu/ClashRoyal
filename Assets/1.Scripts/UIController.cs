@@ -12,6 +12,7 @@ public class UIController : MonoBehaviour
     [HideInInspector] public float curEnergy = 0f;
     float maxEnergy = 21;
     float curDump = 0f;
+    [HideInInspector] public double num;
     // Start is called before the first frame update
 
   
@@ -26,7 +27,7 @@ public class UIController : MonoBehaviour
     {
         double energyState = energy.fillAmount = curEnergy / maxEnergy;
         dumpEnergy.fillAmount = curDump / maxEnergy;
-        double num = Math.Truncate(energyState * 10);
+        num = Math.Truncate(energyState * 10);
         text.text = num.ToString();
         Charge();
     }

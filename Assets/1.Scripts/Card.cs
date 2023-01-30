@@ -8,7 +8,7 @@ public class Card : MonoBehaviour
     [SerializeField] private TMP_Text costText;
     [SerializeField] private Transform parent;
     public CardData cardData;
-    double costNum;
+    double costNum = 0;
 
     public int Cost { get; set; }
     public bool Empty { get; set; }
@@ -21,8 +21,11 @@ public class Card : MonoBehaviour
     void Update()
     {
         costText.text = Cost.ToString();
+        costNum = ControllerManager.Instance.uiCont.num;
+        /*
         double num = ControllerManager.Instance.uiCont.curEnergy;
-        costNum = Math.Truncate(num * 10);
+        costNum = Math.Truncate(num * 10) / 10;
+        */
     }
 
     public void OnSpawnUint()
