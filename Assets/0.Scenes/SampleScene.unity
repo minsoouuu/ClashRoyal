@@ -2179,7 +2179,7 @@ GameObject:
   - component: {fileID: 1145332405}
   m_Layer: 0
   m_Name: Right
-  m_TagString: Untagged
+  m_TagString: ray
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 4294967295
@@ -2330,7 +2330,7 @@ Canvas:
   serializedVersion: 3
   m_RenderMode: 1
   m_Camera: {fileID: 963194227}
-  m_PlaneDistance: 100
+  m_PlaneDistance: 5
   m_PixelPerfect: 0
   m_ReceivesEvents: 1
   m_OverrideSorting: 0
@@ -3613,7 +3613,7 @@ GameObject:
   - component: {fileID: 1813768451}
   m_Layer: 0
   m_Name: Left
-  m_TagString: Untagged
+  m_TagString: ray
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 4294967295
@@ -3708,7 +3708,7 @@ GameObject:
   - component: {fileID: 1847986014}
   m_Layer: 0
   m_Name: My
-  m_TagString: Untagged
+  m_TagString: ray
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 4294967295
@@ -5653,6 +5653,7 @@ MonoBehaviour:
   costText: {fileID: 6090574686307676935}
   parent: {fileID: 1746513515}
   cardData: {fileID: 0}
+  canvas: {fileID: 1190524874}
 --- !u!114 &6200520564938266992
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5668,6 +5669,7 @@ MonoBehaviour:
   costText: {fileID: 6090574686531278615}
   parent: {fileID: 1746513515}
   cardData: {fileID: 0}
+  canvas: {fileID: 1190524874}
 --- !u!114 &6200520565350938524
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5683,6 +5685,7 @@ MonoBehaviour:
   costText: {fileID: 6090574685969824251}
   parent: {fileID: 1746513515}
   cardData: {fileID: 0}
+  canvas: {fileID: 1190524874}
 --- !u!114 &6200520566283118346
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5698,6 +5701,7 @@ MonoBehaviour:
   costText: {fileID: 6090574684653857133}
   parent: {fileID: 1746513515}
   cardData: {fileID: 0}
+  canvas: {fileID: 1190524874}
 --- !u!33 &6502399096883444469
 MeshFilter:
   m_ObjectHideFlags: 0

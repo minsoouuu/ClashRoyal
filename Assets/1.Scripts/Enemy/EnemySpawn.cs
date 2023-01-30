@@ -16,19 +16,19 @@ public class EnemySpawn : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.F1))
         {
-            Character character = Instantiate(cardDatas[0].Char, parent); 
-            character.cardData = cardDatas[0];
-            character.charData.findtag = "my";
-            character.tag = "enemy";
+            EnemySpawns(1);
         }
         if (Input.GetKeyDown(KeyCode.F2))
         {
-            Character character = Instantiate(cardDatas[1].Char, parent);
-            character.cardData = cardDatas[1];
-            character.charData.findtag = "my";
-            character.tag = "enemy";
-            Debug.Log(character.charData.findtag);
-            Debug.Log(character.tag);
+            EnemySpawns(2);
         }
+    }
+
+    void EnemySpawns(int index)
+    {
+        Character character = Instantiate(cardDatas[index].Char, parent);
+        character.cardData = cardDatas[0];
+        character.charData.findtag = "my";
+        character.tag = "enemy";
     }
 }

@@ -362,7 +362,7 @@ GameObject:
   - component: {fileID: 2468318153827581649}
   - component: {fileID: 3306289857205993341}
   m_Layer: 0
-  m_Name: deb_Goblin01
+  m_Name: Goblin
   m_TagString: my
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
