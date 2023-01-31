@@ -19,8 +19,8 @@ public class CardController : MonoBehaviour
     {
         for (int i = 0; i < cards.Length; i++)
         {
-            
-            cards[i].Enable(true)
+            cards[i]
+                .Enable(true)
                 .SetParent(pawnPoint)
                 .SetCardData(nextCard.CardDequeue());
             

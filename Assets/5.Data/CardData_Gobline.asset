@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: CardData_Gobline
   m_EditorClassIdentifier: 
   character: {fileID: 3306289857205993341, guid: 47b41978aba272c47ae5f4a2f7179c61, type: 3}
+  icon: {fileID: 21300000, guid: 8a478b206ae05c84fb6297a7bd7ca42f, type: 3}
   speed: 1
   cost: 1
   damage: 1

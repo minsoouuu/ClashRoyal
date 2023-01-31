@@ -9,6 +9,7 @@ public class Card : MonoBehaviour, IDragHandler, IDropHandler
 {
     [SerializeField] private TMP_Text costText;
     [SerializeField] private Transform parent;
+    Image iconImage;
     public CardData cardData;
     double costNum = 0;
 
@@ -16,11 +17,6 @@ public class Card : MonoBehaviour, IDragHandler, IDropHandler
     RaycastHit hit;
     public int Cost { get; set; }
     public bool Empty { get; set; }
-
-    void Start()
-    {
-        
-    }
 
     void Update()
     {
@@ -66,12 +62,15 @@ public class Card : MonoBehaviour, IDragHandler, IDropHandler
         this.parent = transform;
         return this;
     }
-
     public Card SetCardData(CardData cardData)
     {
         this.cardData = cardData;
-        Cost = this.cardData.Cost;
-        Empty = false;
+        Cost = cardData.Cost;
+        if (iconImage == null)
+        {
+            iconImage = transform.GetChild(0).GetComponent<Image>();
+        }
+        iconImage.sprite = cardData.Icon;
         return this;
     }
 
@@ -82,6 +81,11 @@ public class Card : MonoBehaviour, IDragHandler, IDropHandler
 
     public void OnDrop(PointerEventData eventData)
     {
+        if (hit.transform == null)
+        {
+            StartCoroutine("CardPosInit");
+            return;
+        }
         if (costNum >= Cost && !Empty)
         {
             if (hit.transform.tag.Equals("ray"))

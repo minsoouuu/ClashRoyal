@@ -54,5 +54,6 @@ public class UIController : MonoBehaviour
         double testEnergy = curEnergy / maxEnergy;
         double b = Math.Truncate(testEnergy*10);
         text.text = (b / 10).ToString();
+
     }
 }

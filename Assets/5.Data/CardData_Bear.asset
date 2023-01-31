@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: CardData_Bear
   m_EditorClassIdentifier: 
   character: {fileID: 6182349193245086535, guid: 0b2b1812ef402d14aa26ee34d4dad17b, type: 3}
+  icon: {fileID: 21300000, guid: 6054318fc678eef4e97655493b73c580, type: 3}
   speed: 2
   cost: 2
   damage: 1000

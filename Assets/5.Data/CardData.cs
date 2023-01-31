@@ -9,8 +9,8 @@ public class CardData : ScriptableObject
     [SerializeField] Character character;
     public Character Char { get { return character; } }
 
-    [SerializeField] Image image;
-    public Image Image { get { return image; } }
+    [SerializeField] Sprite icon;
+    public Sprite Icon { get { return icon; } }
 
     [SerializeField] int speed;
     public int Speed { get { return speed; } }
