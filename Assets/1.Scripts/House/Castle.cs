@@ -6,6 +6,9 @@ public class Castle : MonoBehaviour
 {
     [SerializeField] private float maxHP;
     [SerializeField] Image hpImage;
+    [SerializeField] private Arrow_1 arrow;
+    [SerializeField] private Transform parent;
+    float time;
     public float CurHP { get; set; }
     void Start()
     {
@@ -15,7 +18,41 @@ public class Castle : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        time += Time.deltaTime;
         hpImage.fillAmount = CurHP / maxHP;
         if (CurHP <= 0) Destroy(gameObject);
+        GameObject[] targets = GameObject.FindGameObjectsWithTag("my");
+        if (targets.Length == 0)
+        {
+            return;
+        }
+        float dis = 0;
+        GameObject findtarget = null;
+        foreach (GameObject item in targets)
+        {
+            findtarget = item;
+        }
+        dis = Vector3.Distance(transform.position, findtarget.transform.position);
+        /*
+        Vector3 dir = findtarget.transform.position - transform.position;
+        float shotDir = Mathf.Atan2(dir.y, dir.x) * Mathf.Rad2Deg;
+        */
+        if (arrow != null)
+        {
+            if (findtarget != null)
+            {
+                if (dis < 5)
+                {
+                    arrow.Initalize();
+                    if (arrow.arrowData.attackDel < time)
+                    {
+                        parent.LookAt(findtarget.transform);
+                        arrow = Instantiate(arrow, parent);
+                        time = 0;
+                    }
+                }
+            }
+        }
+        Debug.Log(findtarget);
     }
 }

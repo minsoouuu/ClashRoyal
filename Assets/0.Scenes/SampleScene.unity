@@ -1690,6 +1690,36 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 919446516}
   m_CullTransparentMesh: 1
+--- !u!1 &960973168
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 960973169}
+  m_Layer: 0
+  m_Name: Shoter
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &960973169
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 960973168}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 7902922194243994136}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &963194225
 GameObject:
   m_ObjectHideFlags: 0
@@ -4094,6 +4124,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxHP: 2500
   hpImage: {fileID: 744386751}
+  arrow: {fileID: 0}
+  parent: {fileID: 0}
 --- !u!23 &6022000113684978866
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -4200,6 +4232,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxHP: 2500
   hpImage: {fileID: 2041565183}
+  arrow: {fileID: 0}
+  parent: {fileID: 0}
 --- !u!222 &6090574684653857132
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -5806,6 +5840,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxHP: 2500
   hpImage: {fileID: 654369818}
+  arrow: {fileID: 0}
+  parent: {fileID: 0}
 --- !u!33 &7711012770175468253
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -5915,6 +5951,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxHP: 5000
   hpImage: {fileID: 919446518}
+  arrow: {fileID: 8721306712679851446, guid: 06085fca9c29ad04fa19aa0ce41a3630, type: 3}
+  parent: {fileID: 0}
 --- !u!33 &7902922194240569912
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -6009,6 +6047,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxHP: 5000
   hpImage: {fileID: 7085287}
+  arrow: {fileID: -7799310877190014145, guid: 06085fca9c29ad04fa19aa0ce41a3630, type: 3}
+  parent: {fileID: 0}
 --- !u!4 &7902922194243994136
 Transform:
   m_ObjectHideFlags: 0
@@ -6021,6 +6061,7 @@ Transform:
   m_LocalScale: {x: 0.014285713, y: 0.1, z: 0.012500001}
   m_Children:
   - {fileID: 207291777}
+  - {fileID: 960973169}
   m_Father: {fileID: 1707912344}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 90, z: 0}
@@ -6115,6 +6156,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxHP: 2500
   hpImage: {fileID: 1409430275}
+  arrow: {fileID: 0}
+  parent: {fileID: 0}
 --- !u!4 &8213885065357056929
 Transform:
   m_ObjectHideFlags: 0
