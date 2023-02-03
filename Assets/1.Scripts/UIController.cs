@@ -10,7 +10,7 @@ public class UIController : MonoBehaviour
     [SerializeField] private Image dumpEnergy;
     [SerializeField] private TMP_Text text;
     [HideInInspector] public float curEnergy = 0f;
-    float maxEnergy = 20;
+    float maxEnergy = 10;
     float curDump = 0f;
     [HideInInspector] public double num;
     // Start is called before the first frame update

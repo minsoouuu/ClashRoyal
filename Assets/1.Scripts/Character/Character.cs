@@ -62,6 +62,7 @@ public abstract class Character : MonoBehaviour
             transform.LookAt(findTarget.transform);
             agent.SetDestination(transform.position);
             anit.SetTrigger("attack");
+
             if (cardData.AttTime < time)
             {
                 Attack(findTarget);

@@ -13,10 +13,10 @@ MonoBehaviour:
   m_Name: CardData_Bear
   m_EditorClassIdentifier: 
   character: {fileID: 6182349193245086535, guid: 0b2b1812ef402d14aa26ee34d4dad17b, type: 3}
-  icon: {fileID: 21300000, guid: 6054318fc678eef4e97655493b73c580, type: 3}
+  icon: {fileID: -113326392, guid: 4a73eaab21554c948b4fb011103c73fb, type: 3}
   speed: 2
-  cost: 2
-  damage: 1000
+  cost: 5
+  damage: 50
   hp: 20
   attTime: 3
   attRange: 2

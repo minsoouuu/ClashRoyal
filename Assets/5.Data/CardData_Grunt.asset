@@ -1,0 +1,22 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 925da49253832e44db82a593fc8a7300, type: 3}
+  m_Name: CardData_Grunt
+  m_EditorClassIdentifier: 
+  character: {fileID: 1323718442703886657, guid: aad05534a7ba0dd49b8c54ce188308ec, type: 3}
+  icon: {fileID: -1010705689, guid: 4a73eaab21554c948b4fb011103c73fb, type: 3}
+  speed: 2
+  cost: 4
+  damage: 40
+  hp: 150
+  attTime: 3
+  attRange: 3

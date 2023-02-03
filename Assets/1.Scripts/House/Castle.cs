@@ -26,6 +26,7 @@ public class Castle : MonoBehaviour
         {
             return;
         }
+        return;
         float dis = 0;
         GameObject findtarget = null;
         foreach (GameObject item in targets)
@@ -53,6 +54,5 @@ public class Castle : MonoBehaviour
                 }
             }
         }
-        Debug.Log(findtarget);
     }
 }
