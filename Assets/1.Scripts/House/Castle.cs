@@ -21,12 +21,16 @@ public class Castle : MonoBehaviour
         time += Time.deltaTime;
         hpImage.fillAmount = CurHP / maxHP;
         if (CurHP <= 0) Destroy(gameObject);
+
+
+
+
+        return;
         GameObject[] targets = GameObject.FindGameObjectsWithTag("my");
         if (targets.Length == 0)
         {
             return;
         }
-        return;
         float dis = 0;
         GameObject findtarget = null;
         foreach (GameObject item in targets)
