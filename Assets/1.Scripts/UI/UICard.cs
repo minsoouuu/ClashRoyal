@@ -8,6 +8,12 @@ public class UICard : MonoBehaviour , IDragHandler
 {
     Image targetImage = null;
     [SerializeField] private Transform parent;
+    RaycastHit hitData;
+    GameObject hitObj;
+    void Update()
+    {
+       
+    }
     public void OnDrag(PointerEventData eventData)
     {
         if (targetImage != null)
@@ -20,6 +26,7 @@ public class UICard : MonoBehaviour , IDragHandler
             targetImage.color = new Color(1f, 1f, 1f, 1f/255f);
         }
         targetImage = null;
+       
     }
 
     public void OnPointDown()

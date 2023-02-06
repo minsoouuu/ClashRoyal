@@ -8,6 +8,7 @@ TagManager:
   - maincastle
   - my
   - ray
+  - mycard
   layers:
   - Default
   - TransparentFX
