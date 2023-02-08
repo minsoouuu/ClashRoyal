@@ -7,21 +7,31 @@ public class UIMyCard : MonoBehaviour
 {
     [SerializeField] Sprite orginImage;
     [SerializeField] Image changeImage;
+    
+    [HideInInspector] public int index;
+    MainUI cont;
     Image image;
     void Start()
     {
         image = GetComponent<Image>();
-
+        cont = FindObjectOfType<MainUI>();
     }
     public void OnDrop()
     {
+        if (changeImage.sprite == null)
+            return;
+        cont.myNums[index] = changeImage.sprite.name;
+        cont.DataSave();
         image.sprite = changeImage.sprite;
         image.color = new Color(1f, 1f, 1f, 1f);
+        changeImage.sprite = null;
         Debug.Log(gameObject);
     }
 
     public void OnClick()
     {
+        cont.myNums[index] = "-1";
+        cont.DataSave();
         image.color = new Color(1f, 1f, 1f, 120f / 255f);
         image.sprite = orginImage;
     }

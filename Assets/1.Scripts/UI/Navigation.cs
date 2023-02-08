@@ -9,7 +9,7 @@ public class Navigation : MonoBehaviour
     [SerializeField] private GameObject[] itemObjs;
     void Start()
     {
-        toggles[1].isOn = true;
+        //toggles[1].isOn = true;
         OnToggle(toggles[1]);
     }
 
@@ -31,10 +31,6 @@ public class Navigation : MonoBehaviour
                 }
             count++;
             }
-
         }
-
-
     }
-
 }
