@@ -9,6 +9,7 @@ public class UIMyCard : MonoBehaviour
     [SerializeField] Image changeImage;
     
     [HideInInspector] public int index;
+
     MainUI cont;
     Image image;
     void Start()
@@ -22,10 +23,11 @@ public class UIMyCard : MonoBehaviour
             return;
         cont.myNums[index] = changeImage.sprite.name;
         cont.DataSave();
+        if (!cont.IsSprite(changeImage.sprite))
+            return;
         image.sprite = changeImage.sprite;
         image.color = new Color(1f, 1f, 1f, 1f);
         changeImage.sprite = null;
-        Debug.Log(gameObject);
     }
 
     public void OnClick()
@@ -34,5 +36,6 @@ public class UIMyCard : MonoBehaviour
         cont.DataSave();
         image.color = new Color(1f, 1f, 1f, 120f / 255f);
         image.sprite = orginImage;
+        // cont.DeleteSprite(index);
     }
 }

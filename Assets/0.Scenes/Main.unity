@@ -2817,7 +2817,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7dd633d275666be41906fd0db6364b7b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  MyCardImages:
+  myCardImages:
   - {fileID: 1700586579}
   - {fileID: 1139124197}
   - {fileID: 1907889166}

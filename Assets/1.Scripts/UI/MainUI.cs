@@ -5,7 +5,7 @@ using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 public class MainUI : MonoBehaviour
 {
-    [SerializeField] private Image[] MyCardImages;
+    [SerializeField] private Image[] myCardImages;
     [SerializeField] private Sprite[] sprites;
     [SerializeField] private Image imagePrefab;
     [SerializeField] private Transform cardTrans;
@@ -14,9 +14,9 @@ public class MainUI : MonoBehaviour
 
     void Start()
     {
-        for (int i = 0; i < MyCardImages.Length; i++)
+        for (int i = 0; i < myCardImages.Length; i++)
         {
-            MyCardImages[i].GetComponent<UIMyCard>().index = i;
+            myCardImages[i].GetComponent<UIMyCard>().index = i;
         }
         for (int i = 0; i < sprites.Length; i++)
         {
@@ -33,6 +33,24 @@ public class MainUI : MonoBehaviour
         {
             MyCardSeting();
         }
+    }
+
+    public bool IsSprite(Sprite sprite)
+    {
+        bool b = true;
+        for (int i = 0; i < myCardImages.Length; i++)
+        {
+            if (myCardImages[i].sprite.name == sprite.name)
+            {
+                b = false;
+            }
+        }
+        return b;
+    }
+
+    public void DeleteSprite(int index)
+    {
+        myCardImages[index] = null;
     }
 
     void Update()
@@ -78,14 +96,13 @@ public class MainUI : MonoBehaviour
 
                     if (sprite != null)
                     {
-                        MyCardImages[i].sprite = sprite;
-                        MyCardImages[i].color = new Color(1f, 1f, 1f, 1f);
-
+                          myCardImages[i].sprite = sprite;
+                          myCardImages[i].color = new Color(1f, 1f, 1f, 1f);
                     }
                 }
                 else
                 {
-                    MyCardImages[i].color = new Color(1f,1f,1f,0.5f);
+                    myCardImages[i].color = new Color(1f,1f,1f,0.5f);
                 }
             }
         }
