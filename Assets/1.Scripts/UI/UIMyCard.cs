@@ -28,6 +28,7 @@ public class UIMyCard : MonoBehaviour
         image.sprite = changeImage.sprite;
         image.color = new Color(1f, 1f, 1f, 1f);
         changeImage.sprite = null;
+        
     }
 
     public void OnClick()

@@ -5,24 +5,30 @@ using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 public class MainUI : MonoBehaviour
 {
-    [SerializeField] private Image[] myCardImages;
+    [SerializeField] public Image[] myCardImages;
     [SerializeField] private Sprite[] sprites;
     [SerializeField] private Image imagePrefab;
     [SerializeField] private Transform cardTrans;
 
     [HideInInspector] public string[] myNums;
+    [SerializeField] private List<CardData> cardDatas;
+    
 
     void Start()
     {
+        
         for (int i = 0; i < myCardImages.Length; i++)
         {
             myCardImages[i].GetComponent<UIMyCard>().index = i;
         }
+        CreateCard();
+        /*
         for (int i = 0; i < sprites.Length; i++)
         {
             imagePrefab = Instantiate(imagePrefab, cardTrans);
             imagePrefab.sprite = sprites[i];
         }
+        */
         if (string.IsNullOrEmpty(PlayerPrefs.GetString("mycard")))
         {
             string[] arrayStr = new string[] { "-1", "-1", "-1", "-1", "-1", "-1", "-1", "-1" };
@@ -32,6 +38,35 @@ public class MainUI : MonoBehaviour
         else
         {
             MyCardSeting();
+        }
+    }
+
+    void CreateCard()
+    {
+        List<Image> myCardImages = new List<Image>();
+        foreach (var item in sprites)
+        {
+            Image img = Instantiate(imagePrefab, cardTrans);
+            img.sprite = item;
+            img.color = new Color(1f,1f,1f,0.5f);
+            img.raycastTarget = false;
+
+            myCardImages.Add(img);
+        }
+
+
+        for (int i = 0; i < cardDatas.Count; i++)
+        {
+            for (int j = 0; j < myCardImages.Count; j++)
+            {
+                if (cardDatas[i].Icon.name == myCardImages[j].sprite.name)
+                {
+                    myCardImages[j].color = new Color(1f, 1f, 1f, 1f);
+                    myCardImages[j].raycastTarget = true;
+                    break;
+
+                }
+            }
         }
     }
 
@@ -47,16 +82,11 @@ public class MainUI : MonoBehaviour
         }
         return b;
     }
-
-    public void DeleteSprite(int index)
+    public void Delete(int index)
     {
         myCardImages[index] = null;
     }
-
-    void Update()
-    {
-        
-    }
+    
 
     public void DataSave()
     {
@@ -75,6 +105,7 @@ public class MainUI : MonoBehaviour
 
     public void MyCardSeting()
     {
+        
         if (!string.IsNullOrEmpty(PlayerPrefs.GetString("mycard")))
         {
             string[] strs = PlayerPrefs.GetString("mycard").Split(",");

@@ -31,11 +31,13 @@ public class UICard : MonoBehaviour , IDragHandler
 
     public void OnPointDown()
     {
-        if(targetImage == null)
-        targetImage = FindObjectOfType<UICardMove>().GetComponent<Image>();
-        Sprite sprite = GetComponent<Image>().sprite;
-        targetImage.color = new Color(1f, 1f, 1f, 1f);
-        targetImage.sprite = sprite;
-        targetImage.transform.position = Input.mousePosition;
+        if (targetImage == null)
+        {
+            targetImage = FindObjectOfType<UICardMove>().GetComponent<Image>();
+            Sprite sprite = GetComponent<Image>().sprite;
+            targetImage.color = new Color(1f, 1f, 1f, 1f);
+            targetImage.sprite = sprite;
+            targetImage.transform.position = Input.mousePosition;
+        }
     }
 }

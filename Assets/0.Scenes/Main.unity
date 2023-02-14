@@ -2872,6 +2872,12 @@ MonoBehaviour:
   imagePrefab: {fileID: 3387475696241519069, guid: eab3c6e51225dfa4a84c4cf249cc91af, type: 3}
   cardTrans: {fileID: 51315300}
   myNums: []
+  cardDatas:
+  - {fileID: 11400000, guid: 55aa9e5837f079740a0f6cf314a779b6, type: 2}
+  - {fileID: 11400000, guid: 4e877c648f5ff314a9db424666994860, type: 2}
+  - {fileID: 11400000, guid: 9cfc96d4d91232d44a1b31349224c2c0, type: 2}
+  - {fileID: 11400000, guid: 5d5d9d07f2cefd340828f06a0dc542f4, type: 2}
+  - {fileID: 11400000, guid: 404352c5797563b439401c623210d4ee, type: 2}
 --- !u!4 &522425276
 Transform:
   m_ObjectHideFlags: 0
