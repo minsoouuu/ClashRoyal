@@ -16,7 +16,7 @@ public class UIShop : MonoBehaviour
     void Start()
     {
         string[] titles = { "100G", "500g", "1000g", "3000G", "5000G", "10000G" };
-        int[] prices = { 100, 500, 1000, 3000, 5000, 10000 };
+        int[] prices = { 100, 500, 1000, 3000, 5000, 100000000 };
         for (int i = 0; i < uIShopItems.Length; i++)
         {
             GoldShop gs = new GoldShop();
@@ -24,17 +24,10 @@ public class UIShop : MonoBehaviour
             gs.price = prices[i];
             goldShops.Add(gs);
         }
-
         for (int i = 0; i < uIShopItems.Length; i++)
         {
             uIShopItems[i].TitleText(goldShops[i].title);
             uIShopItems[i].PirceText(string.Format("{0:#,###}¿ø", goldShops[i].price)); 
         }
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
     }
 }

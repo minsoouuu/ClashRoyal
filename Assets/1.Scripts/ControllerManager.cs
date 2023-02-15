@@ -14,6 +14,7 @@ public class ControllerManager : MonoBehaviour
     void Awake()
     {
         Instance = this;
+        dataCont.Init();
         nextCard.Initialize();
     }
 }

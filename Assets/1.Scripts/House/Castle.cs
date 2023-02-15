@@ -9,18 +9,38 @@ public class Castle : MonoBehaviour
     [SerializeField] private Arrow_1 arrow;
     [SerializeField] private Transform parent;
     float time;
+
+    public int CastleCount
+    {
+        get { return CastleCount; }
+        set 
+        {
+            CastleCount = value;
+            if (CastleCount == 0)
+            {
+                ControllerManager.Instance.uiCont.OnImage();
+            }
+        }
+    }
     public float CurHP { get; set; }
     void Start()
     {
+        CastleCount = 3;
         CurHP = maxHP;
     }
 
     // Update is called once per frame
     void Update()
     {
+        if (!ControllerManager.Instance.uiCont.isOn)
+            return;
         time += Time.deltaTime;
         hpImage.fillAmount = CurHP / maxHP;
-        if (CurHP <= 0) Destroy(gameObject);
+        if (CurHP <= 0)
+        {
+            Destroy(gameObject);
+            CastleCount -= 1;
+        }
 
 
 

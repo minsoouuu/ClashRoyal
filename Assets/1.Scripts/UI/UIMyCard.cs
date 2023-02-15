@@ -28,7 +28,7 @@ public class UIMyCard : MonoBehaviour
         image.sprite = changeImage.sprite;
         image.color = new Color(1f, 1f, 1f, 1f);
         changeImage.sprite = null;
-        
+        Debug.Log(PlayerPrefs.GetString("mycard"));
     }
 
     public void OnClick()
@@ -37,6 +37,8 @@ public class UIMyCard : MonoBehaviour
         cont.DataSave();
         image.color = new Color(1f, 1f, 1f, 120f / 255f);
         image.sprite = orginImage;
+        Debug.Log(PlayerPrefs.GetString("mycard"));
+
         // cont.DeleteSprite(index);
     }
 }

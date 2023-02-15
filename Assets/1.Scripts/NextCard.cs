@@ -14,13 +14,22 @@ public class NextCard : MonoBehaviour
     public void Initialize()
     {
         for (int i = 0; i < 5; i++)
-        {
+        {   /*
             int rand = Random.Range(0, ControllerManager.Instance.dataCont.datas.Length);
             CardData card = ControllerManager.Instance.dataCont.datas[rand];
+            */
+
+            int rand = Random.Range(0, ControllerManager.Instance.dataCont.picupCds.Count);
+            CardData card = ControllerManager.Instance.dataCont.picupCds[rand];
             cards.Enqueue(card);
+        }
+        foreach (var item in cards)
+        {
+            print(item);
         }
         nextcard = cards.Dequeue();
         InvokeRepeating("CardEnqueue", 0f, 0.5f);
+
     }
     private void Update()
     {

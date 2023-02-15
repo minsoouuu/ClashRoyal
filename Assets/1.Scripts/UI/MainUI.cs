@@ -54,7 +54,6 @@ public class MainUI : MonoBehaviour
             myCardImages.Add(img);
         }
 
-
         for (int i = 0; i < cardDatas.Count; i++)
         {
             for (int j = 0; j < myCardImages.Count; j++)
@@ -69,7 +68,6 @@ public class MainUI : MonoBehaviour
             }
         }
     }
-
     public bool IsSprite(Sprite sprite)
     {
         bool b = true;
@@ -86,7 +84,6 @@ public class MainUI : MonoBehaviour
     {
         myCardImages[index] = null;
     }
-    
 
     public void DataSave()
     {
@@ -99,13 +96,11 @@ public class MainUI : MonoBehaviour
                 str += ",";
             }
         }
-
         PlayerPrefs.SetString("mycard", str);
     }
 
     public void MyCardSeting()
     {
-        
         if (!string.IsNullOrEmpty(PlayerPrefs.GetString("mycard")))
         {
             string[] strs = PlayerPrefs.GetString("mycard").Split(",");
