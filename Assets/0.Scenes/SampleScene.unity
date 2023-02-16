@@ -1132,7 +1132,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &326974286
 RectTransform:
   m_ObjectHideFlags: 0
@@ -4415,8 +4415,10 @@ MonoBehaviour:
   dumpEnergy: {fileID: 282858437}
   text: {fileID: 152978559}
   curEnergy: 0
+  reStartImage: {fileID: 326974285}
   num: 0
   isOn: 1
+  castleCount: 3
 --- !u!4 &1799146286
 Transform:
   m_ObjectHideFlags: 0
@@ -4940,7 +4942,6 @@ MonoBehaviour:
   hpImage: {fileID: 744386751}
   arrow: {fileID: 0}
   parent: {fileID: 0}
-  castles: []
 --- !u!23 &6022000113684978866
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -5051,7 +5052,6 @@ MonoBehaviour:
   hpImage: {fileID: 2041565183}
   arrow: {fileID: 0}
   parent: {fileID: 0}
-  castles: []
 --- !u!222 &6090574684653857132
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -6674,7 +6674,6 @@ MonoBehaviour:
   hpImage: {fileID: 654369818}
   arrow: {fileID: 0}
   parent: {fileID: 0}
-  castles: []
 --- !u!33 &7711012770175468253
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -6788,7 +6787,6 @@ MonoBehaviour:
   hpImage: {fileID: 919446518}
   arrow: {fileID: 8721306712679851446, guid: 06085fca9c29ad04fa19aa0ce41a3630, type: 3}
   parent: {fileID: 0}
-  castles: []
 --- !u!33 &7902922194240569912
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -6886,7 +6884,6 @@ MonoBehaviour:
   hpImage: {fileID: 7085287}
   arrow: {fileID: -7799310877190014145, guid: 06085fca9c29ad04fa19aa0ce41a3630, type: 3}
   parent: {fileID: 0}
-  castles: []
 --- !u!4 &7902922194243994136
 Transform:
   m_ObjectHideFlags: 0
@@ -6998,7 +6995,6 @@ MonoBehaviour:
   hpImage: {fileID: 1409430275}
   arrow: {fileID: 0}
   parent: {fileID: 0}
-  castles: []
 --- !u!4 &8213885065357056929
 Transform:
   m_ObjectHideFlags: 0

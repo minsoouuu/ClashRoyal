@@ -11,16 +11,26 @@ public class UIController : MonoBehaviour
     [SerializeField] private Image dumpEnergy;
     [SerializeField] private TMP_Text text;
     [HideInInspector] public float curEnergy = 0f;
-    [HideInInspector] public Button reStartImage;
+    [SerializeField] private GameObject reStartImage;
     float maxEnergy = 10;
     float curDump = 0f;
     [HideInInspector] public double num;
-    // Start is called before the first frame update
+    public bool isOn = true;
+    [HideInInspector] public int castleCount = 3;
+    [SerializeField] TMP_Text goldtext;
+    int gold = 0;
+    public int Gold
+    {
+        get { return gold; }
 
-    [HideInInspector] public bool isOn = true;
+        set
+        {
+            gold = value;
+        }
+    }
     void Start()
     {
-        reStartImage.gameObject.SetActive(false);
+        //reStartImage.gameObject.SetActive(false);
         curDump = maxEnergy / 10f;
     }
 
@@ -49,9 +59,10 @@ public class UIController : MonoBehaviour
 
     }
 
-    public void OnImage()
+    public void ShowImage()
     {
         reStartImage.gameObject.SetActive(true);
+        isOn = false;
     }
 
     public void UseEnergy(float cost)
@@ -61,6 +72,7 @@ public class UIController : MonoBehaviour
     }
     public void OnEndGame(bool restart)
     {
+
         if (restart)
         {
             isOn = true;
@@ -72,5 +84,6 @@ public class UIController : MonoBehaviour
             SceneManager.LoadScene("Main");
             reStartImage.gameObject.SetActive(false);
         }
+        gold = 1000;
     }
 }

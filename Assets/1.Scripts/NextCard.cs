@@ -41,8 +41,10 @@ public class NextCard : MonoBehaviour
         {
             return;
         }
-        int rand = Random.Range(0, ControllerManager.Instance.dataCont.datas.Length);
-        CardData card = ControllerManager.Instance.dataCont.datas[rand];
+        //int rand = Random.Range(0, ControllerManager.Instance.dataCont.datas.Length);
+        //CardData card = ControllerManager.Instance.dataCont.datas[rand];
+        int rand = Random.Range(0, ControllerManager.Instance.dataCont.picupCds.Count);
+        CardData card = ControllerManager.Instance.dataCont.picupCds[rand];
         cards.Enqueue(card);
     }
 

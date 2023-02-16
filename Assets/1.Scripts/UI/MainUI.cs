@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
+using TMPro;
 public class MainUI : MonoBehaviour
 {
     [SerializeField] public Image[] myCardImages;
@@ -12,8 +13,8 @@ public class MainUI : MonoBehaviour
 
     [HideInInspector] public string[] myNums;
     [SerializeField] private List<CardData> cardDatas;
-    
-
+    [SerializeField] private TMP_Text goldtext;
+   
     void Start()
     {
         
@@ -41,6 +42,15 @@ public class MainUI : MonoBehaviour
         }
     }
 
+    public void GoldSet(int gold)
+    {
+        goldtext.text = gold.ToString();
+    }
+
+    void Update()
+    {
+    }
+
     void CreateCard()
     {
         List<Image> myCardImages = new List<Image>();
@@ -63,7 +73,6 @@ public class MainUI : MonoBehaviour
                     myCardImages[j].color = new Color(1f, 1f, 1f, 1f);
                     myCardImages[j].raycastTarget = true;
                     break;
-
                 }
             }
         }
@@ -79,10 +88,6 @@ public class MainUI : MonoBehaviour
             }
         }
         return b;
-    }
-    public void Delete(int index)
-    {
-        myCardImages[index] = null;
     }
 
     public void DataSave()

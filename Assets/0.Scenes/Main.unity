@@ -2878,6 +2878,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 9cfc96d4d91232d44a1b31349224c2c0, type: 2}
   - {fileID: 11400000, guid: 5d5d9d07f2cefd340828f06a0dc542f4, type: 2}
   - {fileID: 11400000, guid: 404352c5797563b439401c623210d4ee, type: 2}
+  goldtext: {fileID: 1587294817}
 --- !u!4 &522425276
 Transform:
   m_ObjectHideFlags: 0
@@ -7719,7 +7720,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 1234
+  m_text: 
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: b31cdd0824492a74aa607b9c538c4462, type: 2}
   m_sharedMaterial: {fileID: 4185114828617532660, guid: b31cdd0824492a74aa607b9c538c4462, type: 2}
@@ -8837,13 +8838,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1f69016d14dee6f4c873bd1de78ec12b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  uIShopItems:
-  - {fileID: 338582304}
-  - {fileID: 1926727463}
-  - {fileID: 337918547}
-  - {fileID: 76217701}
-  - {fileID: 2098216280}
-  - {fileID: 215204881}
 --- !u!1 &1907889163
 GameObject:
   m_ObjectHideFlags: 0

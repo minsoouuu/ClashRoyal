@@ -29,6 +29,11 @@ public abstract class Character : MonoBehaviour
     }
     void Update()
     {
+        if (!ControllerManager.Instance.uiCont.isOn)
+        {
+            anit.speed = 0;
+            return;
+        }
         hpImage.fillAmount = curHp / cardData.HP;
         time += Time.deltaTime;
         GameObject[] characters = GameObject.FindGameObjectsWithTag(charData.findtag);

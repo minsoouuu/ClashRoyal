@@ -10,7 +10,7 @@ public struct GoldShop
 
 public class UIShop : MonoBehaviour
 {
-    [SerializeField] private UIShopItem[] uIShopItems;
+    private UIShopItem[] uIShopItems;
     List<GoldShop> goldShops = new List<GoldShop>();
     // Start is called before the first frame update
     void Start()
