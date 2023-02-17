@@ -42,13 +42,14 @@ public class MainUI : MonoBehaviour
         }
     }
 
-    public void GoldSet(int gold)
-    {
-        goldtext.text = gold.ToString();
-    }
-
     void Update()
     {
+        if (ControllerManager.Instance.uiCont.Gold.Equals(null))
+        {
+            return;
+        }
+        goldtext.text = ControllerManager.Instance.uiCont.Gold.ToString();
+
     }
 
     void CreateCard()
