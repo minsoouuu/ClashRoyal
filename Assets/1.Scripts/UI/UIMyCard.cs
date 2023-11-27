@@ -10,15 +10,15 @@ public class UIMyCard : MonoBehaviour
     
     [HideInInspector] public int index;
 
-    MainUI cont;
+    [HideInInspector] public MainUI cont;
     Image image;
     void Start()
     {
         image = GetComponent<Image>();
-        cont = FindObjectOfType<MainUI>();
     }
     public void OnDrop()
     {
+        Debug.Log($"Àû¿ë{index}");
         if (changeImage.sprite == null)
             return;
         cont.myNums[index] = changeImage.sprite.name;
@@ -39,6 +39,6 @@ public class UIMyCard : MonoBehaviour
         image.sprite = orginImage;
         Debug.Log(PlayerPrefs.GetString("mycard"));
 
-        // cont.DeleteSprite(index);
     }
+        // cont.DeleteSprite(index);
 }

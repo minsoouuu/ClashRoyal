@@ -10,16 +10,28 @@ public class MainUI : MonoBehaviour
     [SerializeField] private Sprite[] sprites;
     [SerializeField] private Image imagePrefab;
     [SerializeField] private Transform cardTrans;
+    [SerializeField] private Image targetImage;
 
     [HideInInspector] public string[] myNums;
     [SerializeField] private List<CardData> cardDatas;
     [SerializeField] private TMP_Text goldtext;
-   
+    private int gold = 1000;
+    public int Gold
+    {
+        get { return gold; }
+
+        set
+        {
+            gold = value;
+            goldtext.text = gold.ToString();
+        }
+    }
     void Start()
     {
-        
+        Gold = 1000;
         for (int i = 0; i < myCardImages.Length; i++)
         {
+            myCardImages[i].GetComponent<UIMyCard>().cont = this;
             myCardImages[i].GetComponent<UIMyCard>().index = i;
         }
         CreateCard();
@@ -38,20 +50,13 @@ public class MainUI : MonoBehaviour
         }
         else
         {
-            MyCardSeting();
+            MyCardSetting();
         }
     }
-
     void Update()
     {
-        if (ControllerManager.Instance.uiCont.Gold.Equals(null))
-        {
-            return;
-        }
-        goldtext.text = ControllerManager.Instance.uiCont.Gold.ToString();
 
     }
-
     void CreateCard()
     {
         List<Image> myCardImages = new List<Image>();
@@ -60,6 +65,7 @@ public class MainUI : MonoBehaviour
             Image img = Instantiate(imagePrefab, cardTrans);
             img.sprite = item;
             img.color = new Color(1f,1f,1f,0.5f);
+            img.GetComponent<UICard>().targetImage = this.targetImage;
             img.raycastTarget = false;
 
             myCardImages.Add(img);
@@ -90,7 +96,6 @@ public class MainUI : MonoBehaviour
         }
         return b;
     }
-
     public void DataSave()
     {
         string str = string.Empty;
@@ -104,8 +109,7 @@ public class MainUI : MonoBehaviour
         }
         PlayerPrefs.SetString("mycard", str);
     }
-
-    public void MyCardSeting()
+    public void MyCardSetting()
     {
         if (!string.IsNullOrEmpty(PlayerPrefs.GetString("mycard")))
         {

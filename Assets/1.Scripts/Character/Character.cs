@@ -59,7 +59,6 @@ public abstract class Character : MonoBehaviour
         {
             anit.SetTrigger("run");
             agent.SetDestination(findTarget.transform.position);
-
         }
         else
         {

@@ -29,7 +29,7 @@ public class Navigation : MonoBehaviour
                 {
                     itemObjs[count].SetActive(false);
                 }
-            count++;
+                count++;
             }
         }
     }

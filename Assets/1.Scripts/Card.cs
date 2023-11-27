@@ -22,18 +22,11 @@ public class Card : MonoBehaviour, IDragHandler, IDropHandler
     {
         costText.text = Cost.ToString();
         costNum = ControllerManager.Instance.uiCont.num;
-
         if (Physics.Raycast(transform.position, transform.forward, out hit, 100))
         {
             Debug.DrawRay(transform.position, transform.forward * hit.distance, Color.red);
         }
-
-        /*
-        double num = ControllerManager.Instance.uiCont.curEnergy;
-        costNum = Math.Truncate(num * 10) / 10;
-        */
     }
-
     public void OnSpawnUint()
     {
         /*
@@ -50,13 +43,11 @@ public class Card : MonoBehaviour, IDragHandler, IDropHandler
         }
         */
     }
-
     public Card Enable(bool isOn)
     {
         transform.GetChild(0).gameObject.SetActive(isOn);
         return this;
     }
-
     public Card SetParent(Transform transform)
     {
         this.parent = transform;
@@ -73,12 +64,10 @@ public class Card : MonoBehaviour, IDragHandler, IDropHandler
         iconImage.sprite = cardData.Icon;
         return this;
     }
-
     public void OnDrag(PointerEventData eventData)
     {
         GetComponent<RectTransform>().anchoredPosition += eventData.delta / canvas.scaleFactor;
     }
-
     public void OnDrop(PointerEventData eventData)
     {
         if (hit.transform == null)
